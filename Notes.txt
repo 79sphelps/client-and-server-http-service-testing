@@ -1,0 +1,67 @@
+
+Server Side Testing:
+
+The Mocha/Chai testing implementation comes from:
+https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
+
+This project tests the client side and server side HTTP service API. 
+1) use postman to test the CRUD functionality
+2) build the test/user.js Mocha/Chai test file to automatically test the API
+
+
+Output of Mocha Test Run:
+
+OwnerPC@Owner MINGW64 /c/FULL_STACK_PROJECTS/MOCHA_PROJECTS/mocha-crud-test-project/server
+$ npm test
+
+> server@0.0.0 test C:\FULL_STACK_PROJECTS\MOCHA_PROJECTS\mocha-crud-test-project\server
+> mocha --timeout 10000
+
+
+  Users
+    /GET user
+GET /api/users 200 977.182 ms - 2
+      v it should GET all the users (1015ms)
+    /POST user
+POST /api/users 200 26.238 ms - 353
+      v it should not POST a user without name field
+POST /api/users 200 7.308 ms - 128
+      v it should POST a user
+    /GET/:id user
+GET /api/users/5b16f54abfd1911558e397e3 200 6.586 ms - 82
+      v it should GET a user by the given id
+    /PUT/:id user
+PUT /api/users/5b16f54abfd1911558e397e4 200 102.310 ms - 66
+      v it should UPDATE a user given the id (113ms)
+    /DELETE/:id user
+GET /api/users/5b16f54abfd1911558e397e4 200 3.218 ms - 83
+DELETE /api/users/5b16f54abfd1911558e397e5 200 3.403 ms - 65
+{ message: 'User successfully deleted!',
+  rawData: { n: 1, ok: 1 } }
+object
+      v it should DELETE a user given the id
+
+
+  6 passing (3s)
+------------------------------------------------------------------------------
+
+Client Side Testing:
+
+Notes: 
+- I updated the karma.conf.js file:
+browserConsoleLogOptions: {
+      
+level: 'log',
+      
+format: '%b %T: %m',
+      
+terminal: true
+    
+},
+logLevel: config.LOG_LOG,
+
+
+** Best Resource that I Adapted:
+https://chariotsolutions.com/blog/post/testing-angular-2-0-x-services-http-jasmine-karma/
+
+** The users.service APIs were modified to use Observables! (also updated the user.component.js APIs for this)
