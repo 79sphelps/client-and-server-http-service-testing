@@ -1,6 +1,6 @@
-# client and server CRUD operation testing
+# client and server HTTP service testing
 
-Shows how to test CRUD HTTP operations on both the client and server side of a MEAN stack app.
+Shows how to test HTTP services on both the client and server side of a MEAN stack app.
 
 Client-Side: using Karma and Jasmine
 
